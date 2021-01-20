@@ -13,6 +13,10 @@ def submit():
     server = request.form['server']
     rating = request.form['rating']
     comments = request.form['comments']
+    #print(customer, server, rating, comments)
+    if customer == '' or server == '':
+      return render_template('index.html', message='Please enter required fields')
+    return render_template('success.html')
 
 if __name__ == '__main__':
     app.debug = True
