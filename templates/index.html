@@ -11,7 +11,7 @@
   <div class="container">
     <img src="../static/cactus-logo.png" alt="Cactus" class="logo">
     <!-- @todo - message -->
-    <form action="submit" method="POST">
+    <form action="/submit" method="POST">
       <div class="form-group">
         <h3>Guest Name</h3>
         <input
@@ -21,9 +21,9 @@
         />  
       </div>
       <div class="form-group">
-        <h3>Staff</h3>
-        <select name="dealer">
-          <option value="">Select Staff Member</option>
+        <h3>Who was your server?</h3>
+        <select name="server">
+          <option value="">Select Server</option>
           <option value="Deanna Norman">Deanna Norman</option>
           <option value="Ruben Herrera">Ruben Herrera</option>
           <option value="Kim McDonald">Kim McDonald</option>
@@ -35,7 +35,7 @@
         </select>
       </div>
       <div class="form-group">
-        <h3>Please rate the staff member</h3>
+        <h3>Please rate your experince</h3>
         <input type="radio" name="rating" value="1" /> 1
         <input type="radio" name="rating" value="2" /> 2
         <input type="radio" name="rating" value="3" /> 3
