@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" conetent="ie=edge">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>Please rate your service</title>
+</head>
+<body>
+  <div class="container">
+    <img src="../static/cactus-logo.png" alt="Cactus" class="logo">
+    <!-- @todo - message -->
+    <form action="submit" method="POST">
+      <div class="form-group">
+        <h3>Guest Name</h3>
+        <input
+          type="text"
+          name="customer"
+          placeholder="Your Name"
+        />  
+      </div>
+      <div class="form-group">
+        <h3>Staff</h3>
+        <select name="dealer">
+          <option value="">Select Staff Member</option>
+          <option value="Deanna Norman">Deanna Norman</option>
+          <option value="Ruben Herrera">Ruben Herrera</option>
+          <option value="Kim McDonald">Kim McDonald</option>
+          <option value="Hailey Fleming">Hailey Fleming</option>
+          <option value="Javier Villalobos">Javier Villalobos</options>
+          <option value="Eliane Salazar">Eliane Salazar</options>
+          <option value="Bi Nguyen">Bi Nguyen</options>
+          <option value="Sarah Harper">Sarah Harper</options>
+        </select>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
