@@ -4,6 +4,7 @@ from send_mail import send_mail
 
 app = Flask(__name__)
 
+#connect to database
 ENV = 'prod'
   
 if ENV == 'dev':
@@ -17,6 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+#creates models/table
 class Feedback(db.Model):
   __tablename__ = 'feedback'
   id = db.Column(db.Integer, primary_key=True)
