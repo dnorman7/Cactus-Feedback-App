@@ -7,7 +7,7 @@ ENV = 'dev'
   
 if ENV == 'dev':
   app.debug = True  
-  app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1503548@localhost/cactus' 
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1503548@localhost/postgres' 
 else:
   app.debug = False
   app.config['SQLALCHEMY_DATABASE_URI'] = ''
@@ -22,7 +22,7 @@ class Feedback(db.Model):
   customer = db.Column(db.String(200), unique=True)
   server = db.Column(db.String(200))
   rating = db.Column(db.Integer)
-  comments = db.Column(db.text())
+  comments = db.Column(db.Text())
 
   def __init__(self, customer, server, rating, comments):
     self.customer = customer
@@ -44,7 +44,12 @@ def submit():
     #print(customer, server, rating, comments)
     if customer == '' or server == '':
       return render_template('index.html', message='Please enter required fields')
-    return render_template('success.html')
+    if db.session.query(Feedback).filter(Feedback.customer == customer).count() == 0:
+      data = Feedback(customer, server, rating, comments)
+      db.session.add(data)
+      db.session.commit()
+      return render_template('success.html')
+    return render_template('index.html', message='You have already submitted feedback')
 
 if __name__ == '__main__':
     
